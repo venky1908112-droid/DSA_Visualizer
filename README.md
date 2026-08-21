@@ -6,6 +6,7 @@ A Python GUI application that visualizes sorting algorithms.
 - Bubble Sort
 - Selection Sort
 - Merge Sort
+- Insertion Sort
 - Quick Sort
 
 ## Features
