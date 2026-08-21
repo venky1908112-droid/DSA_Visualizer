@@ -5,13 +5,13 @@ import time
 # window
 root = tk.Tk()
 root.title("DSA Visualizer")
-root.geometry("900x650")
+root.geometry("900x650")                                                                                                                            
 
 data = []
 
 # canvas
 canvas = tk.Canvas(root, width=850, height=400, bg="white")
-canvas.pack(pady=20)
+canvas.pack(pady=20)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 
 # speed slider (faster)
 speed_scale = tk.Scale(
@@ -109,6 +109,31 @@ def merge_sort():
     merge_sort_recursive(data, 0, len(data)-1)
     draw_data(data, ["green"] * len(data))
 
+# -----------------
+# Insertion Sort
+# -----------------
+def insertion_sort():
+    n = len(data)
+
+    for i in range(1, n):
+        key = data[i]
+        j = i - 1
+
+        while j >= 0 and data[j] > key:
+
+            colors = ["blue"] * len(data)
+            colors[j] = "red"
+            colors[j + 1] = "yellow"
+
+            draw_data(data, colors)
+            time.sleep(get_speed())
+
+            data[j + 1] = data[j]
+            j -= 1
+
+        data[j + 1] = key
+
+    draw_data(data, ["green"] * len(data))
 
 def merge_sort_recursive(arr, left, right):
     if left < right:
@@ -200,6 +225,7 @@ def partition(low, high):
 frame = tk.Frame(root)
 frame.pack(pady=20)
 
+tk.Button(frame, text="Insertion Sort", command=insertion_sort).grid(row=0, column=5, padx=10)
 tk.Button(frame, text="Generate Array", command=generate).grid(row=0, column=0, padx=10)
 tk.Button(frame, text="Bubble Sort", command=bubble_sort).grid(row=0, column=1, padx=10)
 tk.Button(frame, text="Selection Sort", command=selection_sort).grid(row=0, column=2, padx=10)
